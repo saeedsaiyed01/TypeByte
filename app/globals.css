@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-accent: var(--accent);
+  --color-sub: var(--sub);
+  --color-error: var(--error);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Default (KeyZen / Original Typebyte) */
+    --bg: #0e0e11;
+    --sub: #52525b; /* zinc-600 */
+    --text: #d4d4d8; /* zinc-300 */
+    --accent: #a48cfa;
+    --error: #ef4444; 
+  }
+
+  /* Custom Themes matching screenshots */
+  [data-theme="t3-chat"] {
+    --bg: #1c1423;
+    --sub: #4d3a58;
+    --text: #e5e1e6;
+    --accent: #d82b6b;
+    --error: #f43f5e;
+  }
+
+  [data-theme="amethyst-haze"] {
+    --bg: #1e1b2e;
+    --sub: #4f4675;
+    --text: #d1cce3;
+    --accent: #a48cfa;
+    --error: #fb7185;
+  }
+
+  [data-theme="catppuccin"] {
+    --bg: #1e1e2e;
+    --sub: #585b70;
+    --text: #cdd6f4;
+    --accent: #cba6f7;
+    --error: #f38ba8;
+  }
+
+  [data-theme="bubblegum"] {
+    --bg: #282524;
+    --sub: #665c54;
+    --text: #ebdbb2;
+    --accent: #d3869b;
+    --error: #cc241d;
+  }
+
+  [data-theme="cosmic-night"] {
+    --bg: #1a1b26;
+    --sub: #565f89;
+    --text: #c0caf5;
+    --accent: #bb9af7;
+    --error: #f7768e;
+  }
+
+  [data-theme="kodama-grove"] {
+    --bg: #192018;
+    --sub: #42523b;
+    --text: #b5c4ad;
+    --accent: #91ad70;
+    --error: #d17a7a;
+  }
+
+  [data-theme="darkmatter"] {
+    --bg: #101012;
+    --sub: #3d3d40;
+    --text: #b0b0b0;
+    --accent: #eb7a34;
+    --error: #ff4d4d;
+  }
+
+  [data-theme="vercel"] {
+    --bg: #000000;
+    --sub: #333333;
+    --text: #ffffff;
+    --accent: #ededed;
+    --error: #ff0000;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
